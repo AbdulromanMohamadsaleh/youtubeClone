@@ -40,7 +40,7 @@ h3{color:#0400ff;  /* for video title */
   <div class="video-watch">
       <br>
       
-      <video  class="video-turn"autoplay controls>
+      <video  class="video-turn" autoplay controls>
 
       <source src="videos/
 <?php
