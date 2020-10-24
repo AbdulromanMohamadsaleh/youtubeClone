@@ -86,7 +86,6 @@ border-top: 4px solid #ccc ;
 
 
 
-
 }
 
 .video-section:first-child{
@@ -144,8 +143,11 @@ flex-direction: column;
     align-items: flex-start;
     margin-top: 1rem;
 
+}
 
+.list-group-item list-group-item-action{
 
+    padding: 0;
 }
 
 

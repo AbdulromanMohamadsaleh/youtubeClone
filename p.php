@@ -1,50 +1,62 @@
-<?php  include_once("include/header1.php") ;
+<!-- this page will open after upload is sucess video -->
+<?php
+  session_start(); // Start the session ?>
 
-// check if submition of form or button is pressed
-include("conDtatabase.php");
-if(isset($_POST['uploadButton'])&&isset($_POST['description'])){
+<?php include_once("header1.php") ; ?>
 
-      $description=$_POST['description'];
-      $name=$_FILES['fileInput']['name'];
-      $tmp=$_FILES['fileInput']['tmp_name'];
-      $titleInput=$_POST['titleInput'];
-
-      // move_uploaded_file($tmp,"videos/".$name);
-
-      $allowType="mp4";
-      $path=$tmp.uniqid().basename($name);
-
-
-      $videoPath=strtolower(pathinfo($path,PATHINFO_EXTENSION));
-
-      if($videoPath==$allowType){
-
-          move_uploaded_file($tmp,"videos/".basename($name));  
-          $sql="insert into video (name,title,description) values ('$name','$titleInput','$description')";
-          $res=mysqli_query($con,$sql);
-
-                if($res==1){
-                  echo  basename($name);
-                    echo "<h5 style='margin-top:10%' ;>Upload sucsess</h5>";
-                    
-                  
-                    
-                  }
-          }
-
-      else{echo"<br><br>"."Invalid Type:"."<br>"."you Most Enter mp4 Only";}
-      
-
+<style>
+  
+  .video-section {
+    display: grid;
+    grid-template-columns:1fr;
+    gap: 0;
+    padding: 3rem 0;
+    margin: 0 auto;
+    border-top: 4px solid #ccc;
+    text-align:center ;
 }
 
-else{  echo"<br>No File";};
-    //
+video{
+
+  width:65%;
+    height: 320px;
+    min-width: 250px;
+    min-height: 150px;
+    /*background-color: white;*/
+    margin: 0 auto 0 auto;
+
+    
+    
+}</style>
+
+<?php
+
+
+  if($_SESSION['res']>0){  // check if there  result from testupload at line 90
+                  
+    echo "<h5 >Upload sucsess</h5>";  } // if there is result show 
+  
+    else echo '<h3>No video</h3>'; // if no result show 
+
+
+?>
 
 
 
 
+<br>
+<br>
+
+<video controls autoplay >
+  <source src="videos/<?php echo $_SESSION["path"];?>" >  <!--$SESSION value  toke from testupload at line 88 ots save the path of video -->
+
+</video>
 
 
+<?php
 
 
+// destroy the session
+$_SESSION["res"]=0;
+$_SESSION["path"]=0;
 ?>
