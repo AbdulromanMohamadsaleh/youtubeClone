@@ -22,7 +22,7 @@ include("conDtatabase.php");
     $deteUpload=$row['updateDate'];
     $id=$row['id'];
     $userUpload=$row['uploadBy'];
-    
+    $view=$row['views'];
 
    
 

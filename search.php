@@ -3,10 +3,7 @@
 
 // check if submition of form or button is pressed
 include("conDtatabase.php");
-static $videoPath;
-$videoTitle;
-$result;
-$deteUpload;
+
 if(isset($_POST['b'])){ 
     $_SESSION['pathpage'] = "search.php";}
 
@@ -35,6 +32,7 @@ if(isset($_POST['searchbutton'])&&isset($_POST['titleSearch'])){
     $deteUpload=$row['updateDate'];
     $id=$row['id'];
     $userUpload=$row['uploadBy'];
+    $view=$row['views'];
     
 
    

@@ -17,8 +17,8 @@
             }
 
             video{
-                width: 100%;
-                 height: 300px;
+                width: 98%;
+                 height: 280px;
                  min-width: 250px;
                  min-height: 150px;
                  background-color:black;
@@ -63,9 +63,9 @@
                         <a class="videio-title" >    <!--- open videio-title--->
                     <?php echo  $videoTitle; ?>
                         </a>    <!--- close videio-title--->
-                        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-                           <h7 style="color:#9e9e9e">Uploaded by : <?php echo $_SESSION['user'] ?></h7>
-                        </a> <!--- close video-channel-name--->
+                        <h7 style="color:#9e9e9e">Uploaded by :<a class="video-channel-name" href="#"> <!--- open video-channel-name--->
+                            <?php echo $_SESSION['user'] ?>
+                        </a> </h7><!--- close video-channel-name--->
                         <div class="video-metadata "> <!---open video-details--->
 
                             <span>12k view</span>

@@ -84,6 +84,7 @@ if(isset($_POST['uploadButton'])){
       $title=$_FILES['fileInput']['name'];
       $tmp=$_FILES['fileInput']['tmp_name'];
       $titleInput=$_POST['titleInput'];
+      
 
       // move_uploaded_file($tmp,"videos/".$name);
 

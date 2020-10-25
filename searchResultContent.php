@@ -1,6 +1,4 @@
-
-   
-       
+ 
         <style>
         body{/*background-color:black;*/}
             .video-section {
@@ -15,7 +13,7 @@
 
             video{
                 width: 100%;
-                 height: 300px;
+                 height: 180px;
                  min-width: 250px;
                  min-height: 150px;
                  background-color:black;
@@ -24,7 +22,7 @@
             .video-container {
                        display: flex;
                          flex-direction: column;
-                        width: fit-content;
+                        
                         
             }
           /*  .videos {
@@ -57,15 +55,17 @@
 
                     <div class="video-details"> <!--- open video-details--->
 
-                        <a class="videio-title" <?php echo "href=whatch.php?id=$id"; ?>>    <!--- open videio-title--->
+                        <a class="videio-title"
+                         <?php echo "href=whatch.php?id=$id"; // when click the title  he will send you to whatch.php and will take the id and put it in url?>  >    <!--- open videio-title--->
                     <?php echo  $videoTitle; ?>
                         </a>    <!--- close videio-title--->
-                        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-                           <h7 style="color:#9e9e9e">Uploaded by : <?php echo $userUpload ?></h7>
-                        </a> <!--- close video-channel-name--->
+                        </a>    <!--- close videio-title--->
+                        <h7 style="color:#9e9e9e">Uploaded by :<a class="video-channel-name" href="#"> <!--- open video-channel-name--->
+                            <?php echo $_SESSION['user'] ?>
+                        </a> </h7><!--- close video-channel-name--->
                         <div class="video-metadata "> <!---open video-details--->
 
-                            <span>12k view</span>
+                            <span><?php echo  $view; ?> view</span>
                             •
                             <span><?php echo  $deteUpload; ?></span>
                             

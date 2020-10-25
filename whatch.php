@@ -30,6 +30,9 @@ div.video-watch{
 h3{color:#0400ff;  /* for video title */
     margin-top:2px;}
 
+video{border:none}
+
+
 
 </style>
 
@@ -49,7 +52,7 @@ h3{color:#0400ff;  /* for video title */
             $id=$_GET['id'];
           
             include_once("conDtatabase.php");
-            $q="select * from video where id=$id";  //  query check if thre is id
+            $q="select * from video where id=$id";  //  query check if there is id
             $query=mysqli_query($con,$q);
         
             $row=mysqli_fetch_assoc($query);
@@ -58,23 +61,37 @@ h3{color:#0400ff;  /* for video title */
             $desc=$row['description'];
             $deteUpload=$row['updateDate'];
             $userupload=$row['uploadBy'];
+            $view=$row['views'];
+            $view=1+$view;      //this line for update the view number
+
+            $q2="update video set views=$view  where id=$id"; // qury to set the new value
+            $query=mysqli_query($con,$q2);
+
             echo $p;
+
+
     }
 
 
 ?>">
       </video>
       <h3>Title: <?php echo $title; ?></h3>
-      <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-                           <h7 style="color:#9e9e9e">Uploaded by : <?php echo  $userupload ?></h7>
-                        </a> <!--- close video-channel-name--->
-      <h5>Description: <?php echo  "<br><h6>$desc</h6>"; ?></h5>
+            <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
+                         <h7 style="color:#9e9e9e">Uploaded by : <?php echo  $userupload ?></h7>
+                        </a> ><!--- close video-channel-name--->
 
                         <div class="video-metadata "> <!---open video-details--->
 
-                            <span>12k view</span>
+                            <span><?php echo $view; ?> view</span>
                             •
-                            <span><?php echo  $deteUpload; ?></span>
+                            <span><?php echo $deteUpload; ?></span>
+                            <img class="like"src="pic/like.png" alt="like" style="width:30px">
+                            <img class="like" src="pic/dislike.png" alt="like" style="width:30px">
+                            <hr>
+                            <h5>Description: <?php echo  "<br><h6>$desc</h6>"; ?></h5>
+
+
+
       </div>
 
       
@@ -93,451 +110,40 @@ h3{color:#0400ff;  /* for video title */
 
         
       </h2>
-      <article class="video-container">   <!--- open video-container--->
+ 
+      <?php
 
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
+include("conDtatabase.php");
+
+    $sql="SELECT * FROM `video`";
+    
+    
+    $result = mysqli_query($con, $sql);
+
+    $resultCheck=mysqli_num_rows($result);
+
+    if( $resultCheck>0){ //check if got any result from query
+   
+
+
+        while($row = mysqli_fetch_assoc($result)) {
     
 
-</a>     <!--- close thumbnail--->
+    $videoPath=$row['path'];
+    $videoTitle=$row['title'];
+    $deteUpload=$row['updateDate'];
+    $id=$row['id'];
+    $userUpload=$row['uploadBy'];
+    $view=$row['views'];
 
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
+   
 
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
+        include("searchResultContent.php") ;
+        
 
-    <div class="video-details"> <!--- open video-details--->
+    }}
 
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata "> <!---open video-details--->
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->
-
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata يحتوي على عدد المشاهدت و التاريخ">
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->
-
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata يحتوي على عدد المشاهدت و التاريخ">
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->                
-
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata يحتوي على عدد المشاهدت و التاريخ">
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->
-
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata يحتوي على عدد المشاهدت و التاريخ">
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->  
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata يحتوي على عدد المشاهدت و التاريخ">
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->                  
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata "> <!---open video-details--->
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata "> <!---open video-details--->
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata "> <!---open video-details--->
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->                
-
-
-<article class="video-container">   <!--- open video-container--->
-
-<a href="#" class="thumbnail" data-duration="12:24">  <!--- صورة  open thumbnail--->
-    <img class="thumbnail-img" src="http://unsplash.it/250/150?gravity=centeer">     <!--- thumbnail-img--->
-    
-
-</a>     <!--- close thumbnail--->
-
-<div class="video-bottom-section">  <!--- معلومات اسفل thumnail  open video-bottom-section -->
-    
-    <a href="#">
-
-        <img class="channel-icon" src="http://unsplash.it/36/36?gravity=centeer">   <!--- channel-icon--->
-    </a>
-
-    <div class="video-details"> <!--- open video-details--->
-
-        <a class="videio-title" href="#">    <!--- open videio-title--->
-            Videio title
-        </a>    <!--- close videio-title--->
-        <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-            channel name
-        </a> <!--- close video-channel-name--->
-        <div class="video-metadata "> <!---open video-details--->
-
-            <span>12k view</span>
-            •
-            <span>1 week ago</span>
-
-        </div>
-
-    </div>  <!--- close video-details--->
-
-
-</div>  <!--- video-bottom-section--->
-
-
-
-
-
-
-
-</article>  <!--- close video-container--->
-
+    ?>
 
 </section>   <!--- close video-section--->
 
@@ -546,3 +152,13 @@ h3{color:#0400ff;  /* for video title */
 
 
   <?php include_once("footer.php")?>
+  <style>
+    .video-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 3rem 1rem;
+    padding: 0 0 1rem 0;
+    margin: 0 1.5rem;
+    border-top: 4px solid #ccc;
+}
+  </style>

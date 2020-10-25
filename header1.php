@@ -58,7 +58,7 @@ $_SESSION['user']="Boody";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHI
                 <button type="submit" name="searchbutton" class="search-btn">
                 <img src="pic/search-black.png">
                 </button>
-
+                <span><h8><?php echo $date=date('F d Y'); ?></h8></span>
                 </form> <!--- close search-bar--->
 
             <div class="menu-icon">  <!--- open menu-icon--->
@@ -180,7 +180,7 @@ $_SESSION['user']="Boody";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHI
         <a href="testupload.php" class="list-group-item list-group-item-action"> <img src="pic/upload-video.png"class="im">   Upload video</a>       
         <a href="ManageP.php" class="list-group-item list-group-item-action"><img src="pic/settings.png"class="im">   Maneage video</a>
         <a href="about/aboutus.php" class="list-group-item list-group-item-action"><img src="pic/aboutUs.png"class="im">    About us</a>
-        <a href="log.php" class="list-group-item list-group-item-action" ><img src="pic/log.png"class="im">   Log out</a>
+        <a href="log.php" class="list-group-item list-group-item-action" ><img src="pic/logout.png"class="im">   Log out</a>
 </div>
 
 
