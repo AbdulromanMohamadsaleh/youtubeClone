@@ -56,7 +56,7 @@ $_SESSION['user']="Boody";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHI
             <form  action='search.php' method="POST"class="search-bar" > <!--- open search-bar--->
                 <input class="serach-input"type="search" placeholder="search" aria-label="search" name="titleSearch" required value="<?php echo $_SESSION['t'] ?>" >
                 <button type="submit" name="searchbutton" class="search-btn">
-                <img src="pic/search-black.png">
+                <img class="s" src="pic/search-black.png">
                 </button>
                 <span><h8><?php echo $date=date('F d Y'); ?></h8></span>
                 </form> <!--- close search-bar--->
@@ -84,8 +84,8 @@ $_SESSION['user']="Boody";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHI
 
             </div>
            
-             
-            <form method="POST">
+            </div>  <!--- close menu-icon--->          
+            <form class="mood" method="POST">
 
                 
             
@@ -158,7 +158,7 @@ $_SESSION['user']="Boody";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHI
                                           
  
              
-            </div>  <!--- close menu-icon--->
+
 
     
 

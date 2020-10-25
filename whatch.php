@@ -31,8 +31,10 @@ h3{color:#0400ff;  /* for video title */
     margin-top:2px;}
 
 video{border:none}
-
-
+.likeContain{display:inline;float:right;margin: 7px 40.6px;
+}
+.like{background:none;
+border:none}
 
 </style>
 
@@ -75,18 +77,23 @@ video{border:none}
 
 ?>">
       </video>
+      <div class="likeContain">
+                        Like<button class="like"> <img class="like"src="pic/like.png" alt="like" style="width:30px"></button>500
+                        | Dislike<button class="like"> <img class="like" src="pic/dislike.png" alt="like" style="width:30px"></button>500 |
+                              </div>
       <h3>Title: <?php echo $title; ?></h3>
-            <a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-                         <h7 style="color:#9e9e9e">Uploaded by : <?php echo  $userupload ?></h7>
-                        </a> ><!--- close video-channel-name--->
+
+            <!--- open video-channel-name--->
+                         <h7 style="color:#9e9e9e">Uploaded by : 
+                         <a class="video-channel-name" href="#">  <?php echo  $userupload ?></h7>
+                        </a> <!--- close video-channel-name--->
 
                         <div class="video-metadata "> <!---open video-details--->
 
                             <span><?php echo $view; ?> view</span>
                             •
                             <span><?php echo $deteUpload; ?></span>
-                            <img class="like"src="pic/like.png" alt="like" style="width:30px">
-                            <img class="like" src="pic/dislike.png" alt="like" style="width:30px">
+
                             <hr>
                             <h5>Description: <?php echo  "<br><h6>$desc</h6>"; ?></h5>
 
