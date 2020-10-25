@@ -21,7 +21,7 @@ $_SESSION['user']="Boody";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHI
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Empty Live</title>
+        <title>Live Benificial</title>
         <link rel="icon" href="pic/logo.png">
         <link href="https://fonts.google.com/specimen/Roboto?selection.family=PT+Sans:ital@1|Roboto:ital,wght@1,900">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
