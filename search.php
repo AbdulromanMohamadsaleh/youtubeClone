@@ -34,6 +34,7 @@ if(isset($_POST['searchbutton'])&&isset($_POST['titleSearch'])){
     $userUpload=$row['uploadBy'];
     $view=$row['views'];
     
+    
 
    
 

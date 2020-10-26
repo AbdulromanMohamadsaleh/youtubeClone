@@ -17,7 +17,7 @@
             }
 
             video{
-                width: 98%;
+                width: 100%;
                  height: 280px;
                  min-width: 250px;
                  min-height: 150px;
@@ -34,7 +34,48 @@
 
             background-color:black; 
             }*/
-        </style>
+
+
+            .D_video{
+  background-color:#FF0000 ;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px -25px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.U_video{background-color:#2ec6d1 ;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px -25px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+
+}
+.video-container{
+
+display: flex;
+flex-direction: column;
+border: solid 1px;
+
+
+}
+.video-bottom-section {padding: 5px;}
+       
+       
+       
+       
+h7{    color: #8a8a8a;
+    font-size: .9rem;}
+       
+       span{font-size: 0.8rem;}
+       
+       
+       </style>
                 <article class="video-container">   <!--- open video-container--->
 
                 <!--- صورة  open thumbnail--->
@@ -63,9 +104,9 @@
                         <a class="videio-title" >    <!--- open videio-title--->
                     <?php echo  $videoTitle; ?>
                         </a>    <!--- close videio-title--->
-                        <h7 style="color:#9e9e9e">Uploaded by :<a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-                            <?php echo $_SESSION['user'] ?>
-                        </a> </h7><!--- close video-channel-name--->
+                        <h7 style="color:#9e9e9e">Uploaded by :<!--- open video-channel-name--->
+                            <?php echo $user ?>
+                         </h7><!--- close video-channel-name--->
                         <div class="video-metadata "> <!---open video-details--->
 
                             <span>12k view</span>

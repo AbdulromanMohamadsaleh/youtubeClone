@@ -5,6 +5,7 @@
 
 body {font-family: Arial, Helvetica, sans-serif;}
 
+  
 
 
 /*button section*/
@@ -19,26 +20,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 100%;
   opacity: 0.9;
 }
-.D_video{
-  background-color:#FF0000 ;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-.U_video{background-color:#2ec6d1 ;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
 
-}
 
 button:hover {
   opacity:1;

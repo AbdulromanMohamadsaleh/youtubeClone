@@ -2,7 +2,7 @@
 <?php
 // Start the session
 session_start();
-$_SESSION['user']="Boody";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHICH IS USER NAME
+$_SESSION['user']="Eyad";  // IMPORTANT NOTE : EYAD HERE IS THE PRIMARY KEY WHICH IS USER NAME
 
 
 ?>

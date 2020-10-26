@@ -60,8 +60,8 @@
                     <?php echo  $videoTitle; ?>
                         </a>    <!--- close videio-title--->
                         </a>    <!--- close videio-title--->
-                        <h7 style="color:#9e9e9e">Uploaded by :<a class="video-channel-name" href="#"> <!--- open video-channel-name--->
-                            <?php echo $_SESSION['user'] ?>
+                        <h7 style="color:#9e9e9e">Uploaded by :<a class="video-channel-name"  <?php echo "href=visitChanel.php?userUpload=$userUpload"?>> <!--- open video-channel-name--->
+                            <?php echo $userUpload ?>
                         </a> </h7><!--- close video-channel-name--->
                         <div class="video-metadata "> <!---open video-details--->
 

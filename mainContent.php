@@ -3,7 +3,7 @@
 
 include("conDtatabase.php");
 
-    $sql="SELECT * FROM `video`";
+    $sql="SELECT * FROM `video` ORDER BY RAND()";  // qury show random result
     
     
     $result = mysqli_query($con, $sql);
