@@ -36,7 +36,9 @@ if(!empty($_SESSION['user'])){$user=$_SESSION['user'];} // First check if user i
         include("MangerVideo.php") ;
     
     }
-}}
+}
+else{echo '<h4>You dont have video</h4>';} 
+}
 else{echo "<h4 >Sorry you are not a member You Dont Have Any Video</h4>";}
 
 
